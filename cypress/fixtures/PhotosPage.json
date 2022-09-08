@@ -1,0 +1,7 @@
+{
+  "URL": "/albums/1/photos",
+  "GALLERY": {
+    "TITLE": "[data-cy=\"gallery-title\"]",
+    "PHOTO_TILE": "[data-cy=\"image-tile\"]"
+  }
+}

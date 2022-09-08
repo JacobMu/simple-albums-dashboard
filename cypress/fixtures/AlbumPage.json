@@ -1,0 +1,9 @@
+{
+  "ALBUMS": {
+    "PAGE_TITLE": "[data-cy=\"albums-list-title\"]",
+    "LIST": "[data-cy=\"albums-list\"]",
+    "ALBUM_TITLE": "[data-cy=\"album-title\"]",
+    "FILTER_INPUT": "[data-source=\"userId\"]",
+    "DROPDOWN_OPTION": "[id=\"userId-option-0\"]"
+  }
+}
