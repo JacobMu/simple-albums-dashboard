@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom'
 import { MutableRefObject, useEffect, useRef, useState } from 'react'
 import { useGetList } from 'react-admin'
-import { Photo } from '../types'
-import { useIntersectionObserver } from '../../app-utils/infinite-scroll/useIntersectionObserver'
+import { Photo } from './types'
+import { useIntersectionObserver } from '../app-utils/infinite-scroll/useIntersectionObserver'
 
 interface HookResult {
   observableNodeRef: MutableRefObject<HTMLDivElement | null>

@@ -1,6 +1,8 @@
 import { FC } from 'react'
-import { Card, CardHeader, CardContent, CircularProgress, Alert, ImageListItem, ImageList, Stack } from '@mui/material'
+import { Card, CircularProgress, Alert, ImageListItem, ImageList, Stack } from '@mui/material'
 import { usePhotosGallery } from './usePhotosGallery'
+import { PhotosGalleryCardBody } from './PhotosGalleryCardBody'
+import { GalleryTile } from './gallery-tile/GalleryTile'
 
 export const PhotosGallery: FC = () => {
   const { error, isLoading, observableNodeRef, collection } = usePhotosGallery()
@@ -8,10 +10,9 @@ export const PhotosGallery: FC = () => {
   if (isLoading && collection.length === 0) {
     return (
             <Card>
-                <CardHeader title={<span data-cy="gallery-title">Gallery of photos</span>} />
-                <CardContent>
+                <PhotosGalleryCardBody>
                     <CircularProgress />
-                </CardContent>
+                </PhotosGalleryCardBody>
             </Card>
     )
   }
@@ -19,10 +20,9 @@ export const PhotosGallery: FC = () => {
   if (error !== null) {
     return (
             <Card>
-                <CardHeader title={<span data-cy="gallery-title">Gallery of photos</span>} />
-                <CardContent>
+                <PhotosGalleryCardBody>
                     <Alert severity="error">There was an error</Alert>
-                </CardContent>
+                </PhotosGalleryCardBody>
             </Card>
     )
   }
@@ -31,19 +31,16 @@ export const PhotosGallery: FC = () => {
       <Stack spacing={2} style={{ marginTop: '20px' }}>
           <Card>
               <div>
-                  <CardHeader title={<span data-cy="gallery-title">Gallery of photos</span>} />
-                  <CardContent>
+                  <PhotosGalleryCardBody>
                       <ImageList
                           sx={{ width: '100%', minHeight: '10%' }}
                           cols={3}
                       >
                           {collection.map(({ id, title, url }) => (
-                              <ImageListItem key={id} >
-                                  <img alt={title} loading="lazy" src={url} data-cy="image-tile"/>
-                              </ImageListItem>
+                              <GalleryTile id={id} title={title} imageSrc={url} key={id}/>
                           ))}
                       </ImageList>
-                  </CardContent>
+                  </PhotosGalleryCardBody>
                   <div
                       ref={observableNodeRef}
                       style={{
